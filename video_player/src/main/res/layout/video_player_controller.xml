@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/player_control"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/controller_bg"
+    android:padding="@dimen/extra_small_spacing"
+    tools:ignore="MissingDefaultResource">
+
+    <RelativeLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_spacing"
+        android:background="@color/transparent"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/medium_spacing"
+            android:layout_toStartOf="@id/more"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/small_spacing">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:background="@drawable/ripple_effect"
+                android:padding="@dimen/small_spacing"
+                app:srcCompat="@drawable/ic_back_arrow" />
+
+            <Space
+                android:layout_width="@dimen/small_spacing"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/medium_text"
+                tools:text="@string/panchayat" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/more"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/medium_spacing"
+            android:background="@drawable/ripple_effect_round"
+            android:padding="@dimen/small_spacing"
+            app:srcCompat="@drawable/exo_ic_settings" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/controller_container">
+
+        <TextView
+            android:id="@+id/exo_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/small_spacing"
+            android:textColor="@color/white"
+            tools:text="00:00" />
+
+        <View
+            android:id="@id/exo_progress_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/large_spacing"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="@dimen/small_spacing"
+            android:layout_toStartOf="@id/exo_duration"
+            android:layout_toEndOf="@id/exo_position" />
+
+        <TextView
+            android:id="@+id/exo_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/small_spacing"
+            android:textColor="@color/white"
+            tools:text="03:28" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/controller_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/small_spacing"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/small_spacing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/lock_controller"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/icon_size"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect"
+            android:padding="@dimen/small_spacing"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_lock" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/transparent" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/transparent" />
+
+        <ImageButton
+            android:id="@+id/exo_prev"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/icon_size"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect"
+            android:padding="@dimen/small_spacing"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_skip_prev" />
+
+        <ImageButton
+            android:id="@+id/exo_rew"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/icon_size"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect"
+            android:padding="@dimen/small_spacing"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_fb_10" />
+
+        <ImageButton
+            android:id="@id/exo_play"
+            style="@style/ExoMediaButton.Play"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/icon_size"
+            android:layout_weight="1"
+            android:padding="@dimen/small_spacing"
+            android:scaleType="fitCenter" />
+
+        <ImageButton
+            android:id="@id/exo_pause"
+            style="@style/ExoMediaButton.Pause"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/icon_size"
+            android:layout_weight="1"
+            android:padding="@dimen/small_spacing" />
+
+        <ImageButton
+            android:id="@+id/exo_ffwd"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/icon_size"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect"
+            android:padding="@dimen/small_spacing"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_ff_10" />
+
+        <ImageButton
+            android:id="@+id/exo_next"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/icon_size"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect"
+            android:padding="@dimen/small_spacing"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_skip_next" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/transparent" />
+
+        <ImageButton
+            android:id="@+id/pipMode"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginEnd="@dimen/small_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect"
+            android:padding="@dimen/small_spacing"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_pip" />
+
+        <ImageButton
+            android:id="@+id/scaleType"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginEnd="@dimen/small_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect"
+            android:padding="@dimen/small_spacing"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_fit_width" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_marginEnd="@dimen/extra_large_spacing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
